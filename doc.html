@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KukuKonnect Technical Documentation</title>
+    <link rel="stylesheet" href="partner.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-32x32.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1731d8bcda.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="home">
+    <main class="main">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#intro">Version History</a></li>
+                <li><a href="#intro">Overview</a></li>
+                <li><a href="#partners">Getting Started</a></li>
+                <li><a href="#flows">System Flows</a></li>
+                <li><a href="#system">System Overview</a></li>
+                <li><a href="#database">Database</a></li>
+                <li><a href="#frontend">Frontend</a></li>
+                <li><a href="#backend">Backend</a></li>
+                <li><a href="#deployment">Deployment</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#QA">Quality Assurance</a></li>
+                <li><a href="#glossary">Glossary</a></li>
+               
+
+            </ul>
+        </aside>
+        <section class="content">
+            <div class="content-wrapper">
+                <h1 class="main-heading" id="intro">KukuKonnect Documentation</h1>
+                <div class="underline"></div>
+                <input type="text" placeholder=" Search KukuKonnect documentation" class="search-box" />
+                <div class="welcome-section" id="introduction" data-aos="zoom-in-down">
+                    <h2>Version History</h2>
+                  Version 1.0 is the initial documentation for KukuKonnect, a web-hosted IoT platform for Kenyan poultry farmers to monitor and regulate coop conditions (temperature, humidity) via a Progressive Web App (PWA). Covers setup, usage, database schema, deployment, QA process and  API integration.It has a cloud-hosted Django backend, Next.js PWA frontend, and ESP32 IoT device. For proprietary details or custom endpoints, contact the development team.</p>
+                </div>
+                 <div class="welcome-section" id="introduction" data-aos="zoom-in-down">
+                    <h2>Overview</h2>
+                  KukuKonnect is an IoT-enabled platform designed to empower Kenyan poultry farmers by monitoring and automatically regulating temperature and humidity in chicken coops. Using ESP32 microcontrollers and DHT22 sensors, it ensures optimal conditions to boost chicken survival rates, reduce losses, and enhance productivity. Farmers access data via a Progressive Web App (PWA) dashboard, with agrovets handling initial device registration and onboarding.
+                  This documentation provides end-to-end guidance for setup, operation, and maintenance of the KukuKonnect system, from hardware deployment to data visualization and API interactions.</p>
+                   <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Real-Time Monitoring:</strong> Utilizes ESP32 microcontrollers with DHT22 sensors to provide live temperature  and humidity data from poultry coops, displayed on a Progressive Web App (PWA).</li>
+                        <li><strong>Automated Regulation:</strong> Triggers relays to activate fans or heaters when sensor data breaches farmer-defined thresholds, ensuring optimal coop conditions.</li>
+                        
+                    </ul>
+                </div>
+                <div class="users-section" id="partners" data-aos="zoom-in-down">
+                    <h2>Getting Started</h2>
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li><strong>Hardware:</strong> ESP32 microcontroller, DHT22 sensor, relay modules for actuators (fans/heaters), power supply (5V USB or battery).</li>
+                        <li><strong>Software:</strong> Next js (for frontend dev), Python 3.10+ (for backend), PostgreSQL 14+.</li>
+                        <li><strong>Network:</strong> Stable Wi-Fi or 4G for IoT data transmission; Heroku/Vercel for hosting (as per deployment).</li>
+                    </ul>
+                     <h3>Installation/Setup</h3>
+                      <h4>Hardware Assembly:</h4>
+                      <ul>
+                        <li>Connect DHT22 to ESP32 (VCC to 3.3V, GND to GND, Data to GPIO4).</li>
+                        <li>Wire relays to GPIO5/18 for fan/heater control.</li>
+                        <li>Flash ESP32 with Arduino IDE using MQTT libraries (PubSubClient) for data publishing to broker (HiveMQ).</li>
+                    </ul>
+                     <h4>Backend:</h4>
+                      <ul>
+                        <li>Clone repository</li>
+                          <img src="images/clone.png" alt="Farmer" style="width:500px;">
+                         <li>Install dependencies</li>
+                          <img src="images/dep.png" alt="Farmer" style="width:500px;"> 
+                        <li>Run migrations</li>
+                          <img src="images/migrate.png" alt="Farmer" style="width:500px;"> 
+                         <li>Run Server</li>
+                          <img src="images/server.png" alt="Farmer" style="width:500px;">  
+                        </ul>
+                     <h4>Frontend:</h4>
+                      <ul>
+                        <li>Clone repository</li>
+                          <img src="images/front.png" alt="Farmer" style="width:500px;">
+                         <li>Install dependencies</li>
+                          <img src="images/install.png" alt="Farmer" style="width:500px;"> 
+                         <li>Run Server</li>
+                          <img src="images/run.png" alt="Farmer" style="width:500px;">  
+                        </ul>
+                </div>
+     <div class="how-it-works-section" id="flows" data-aos="zoom-in-down">
+    <h2>System Flows</h2>
+    <h4>User Flow</h4>
+    <p><a href="https://www.figma.com/design/fkHEhQqsMqw6MuV6DmAQNq/User-Flow?node-id=20-2&t=LwGZr6h5eMkx3Ypp-0" target="_blank">View User Flow</a></p>
+       <div style="display: flex; gap: 20px; align-items: center;">
+           <img src="images/farmer.png" alt="Farmer" style="width:500px;">
+           <img src="images/agrovet.png" alt="Agrovet" style="width:500px;">
+       </div>
+    <h4>IOT Flow</h4>
+    <p> <a href="https://www.figma.com/design/fkHEhQqsMqw6MuV6DmAQNq/User-Flow?node-id=20-2&t=LwGZr6h5eMkx3Ypp-0"> View IOT Flow</p></a></p>
+    <img src="images/iot.png" alt="ERD Diagram" style="width:60vh;height:60vh" />
+  
+</div>
+        <div class="how-it-works-section" id="system" data-aos="zoom-in-down">
+    <h2>System Overview</h2>
+    <h4>System Architecture Diagram</h4>
+    <p><strong>Data Flow:</strong> Sensor → ESP32 → MQTT → Backend → PWA</p>
+    <p><a href="https://lucid.app/lucidchart/30b214f6-3746-4f68-aa93-aea1541c9bfd/edit?invitationId=inv_0ddf482a-24c4-49cf-b837-24a4af40c911&page=0_0#" target="_blank">View System Architecture Diagram</a></p>
+    <img src="images/architecture.png" alt="System Architecture Diagram" style="max-width:100%;height:auto;" />
+    
+</div>
+   <div class="how-it-works-section" id="database" data-aos="zoom-in-down">
+      <h3>Database</h3>
+        <h4>Type</h4>
+        <ul>
+            <p><strong>PostgreSQL</strong></p>
+        </ul>
+        <h4>Schema</h4>
+        <ul>
+            <li><strong>Users:</strong>Holds the users(farmers,Agrovets)details</li>
+            <li><strong>Sensor_data:</strong>The data that is being sent from the sensors(Temperature,Humidity)</li>
+            <li><strong>MCU:</strong>Description of the device properties</li>
+        </ul>
+    <h4>Entity Relationship Diagram</h4>
+    <p> <a href="https://drive.google.com/file/d/1VY1lYZptOuyRMAoT9FYlHPcJoKHL-Rop/view"> View Full Entity Relationship Diagram</p></a></p>
+    <img src="images/erd.png" alt="ERD Diagram" style="max-width:100%;height:auto;" /></div>
+
+ <div class="how-it-works-section" id="frontend" data-aos="zoom-in-down">
+    <h2>Frontend</h2>
+        <h3>Language and Frameworks</h3>
+        <h4>Language</h4>
+        <ul>
+            <li><strong>TypeScript:</strong> For type safety and scalability.</li>
+        </ul>
+        <h4>Frameworks</h4>
+        <ul>
+            <li><strong>Next.js:</strong> For server-side rendering and static site generation.</li>
+            <li><strong>Tailwind CSS:</strong> For responsive, utility-first styling.</li>
+        </ul>
+        <h4>Routing</h4>
+        <ul>
+            <li><strong>File-Based Routing:</strong> Defined in <code>/pages</code> (<code>/pages/dashboard.tsx</code>) with dynamic routes.</li>
+        </ul>
+        <h4>Folder Structure</h4>
+        <ul>
+            <li><code>/src</code>
+                <ul>
+                    <li><code>/components</code>: Reusable UI elements (e.g., <code>RegistrationForm.tsx</code>).</li>
+                    <li><code>/pages</code>: Route-specific pages (e.g., <code>Dashboard.tsx</code>, <code>Catalog.tsx</code>).</li>
+                    <li><code>/utils</code>: API call logic.</li>
+                    <li><code>/public</code>: Images.</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>Testing</h4>
+        <ul>
+            <li><strong>Jest and ts-jest:</strong> Unit tests (e.g., <code>test/components/RegistrationForm.test.tsx</code>).</li>
+            <li><strong>Run Tests:</strong> <code>npm test</code>.</li>
+        </ul>
+        <h4>Deployment</h4>
+        <ul>
+            <li><strong>Platform:</strong> Vercel.</li>
+            <li><strong>Instructions:</strong>
+                <ul>
+                    <li>Install dependencies: <code>npm install</code>.</li>
+                    <li>Build project: <code>npm run build</code>.</li>
+                    <li>Deploy: <code>vercel --prod</code> or push to GitHub repo linked to Vercel.</li>
+                    <li>Verify at <a href="https://kukukonnect-frontend.vercel.app" target="_blank">https://kukukonnect.vercel.app</a>.</li>
+                </ul>
+            </li>
+        </ul>
+</div>
+<div class="how-it-works-section" id="backend" data-aos="zoom-in-down">
+        <h2>Backend</h2>
+        <h3>Language and Frameworks</h3>
+        <h4>Language</h4>
+        <ul>
+            <li><strong>Python:</strong> For robust and scalable backend development.</li>
+        </ul>
+        <h4>Frameworks</h4>
+        <ul>
+            <li><strong>Django:</strong> High-level, secure web framework with built-in ORM and admin panel.</li>
+        </ul>
+        <h4>Routing</h4>
+        <ul>
+            <li><strong>URL Routing:</strong> Defined in <code>urls.py</code> (e.g., <code>path('api/register/', views.register, name='register')</code>) with dynamic routes.</li>
+        </ul>
+        <h4>Folder Structure</h4>
+        <ul>
+            <li><code>/kukukonnect-backend</code>
+                <ul>
+                    <li><code>/kukukonnect</code>: Main app directory
+                        <ul>
+                            <li><code>/views</code>: Business logic 
+                            <li><code>/models</code>: Database models 
+                            <li><code>/serializers</code>: Data serialization 
+                        </ul>
+                    </li>
+                    <li><code>/static</code>: Static files (e.g., images).</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>Dependencies</h4>
+        <ul>
+            <li><strong>Django REST Framework (DRF):</strong> For building RESTful APIs.</li>
+
+        </ul>
+        <h4>Testing</h4>
+        <ul>
+            <li><strong>Django Test Framework:</strong> Unit tests (e.g., <code>kukukonnect/tests.py</code>).</li>
+            <li><strong>Run Tests:</strong> <code>python manage.py test</code>.</li>
+        </ul>
+        <h4>Deployment</h4>
+        <ul>
+            <li><strong>Platform:</strong> Heroku.</li>
+            <li><strong>Instructions:</strong>
+                <ul>
+                    <li>Install dependencies: <code>pip install -r requirements.txt</code>.</li>
+                    <li>Apply migrations: <code>python manage.py migrate</code>.</li>
+                    <li>Deploy: Use Heroku CLI with <code>git push heroku main</code> or connect GitHub repo.</li>
+                    <li>Verify at <a href="https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com</a>.</li>
+                </ul>
+            </li>
+        </ul>
+          
+        <h4>API Documentation</h4>
+    <p>Swagger UI provides interactive docs for the REST API, generated via OpenAPI spec.<br></p>
+    <p><strong>Swagger UI:</strong> <a href="https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/swagger-ui/" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/swagger-ui/</a></p>
+    <p><strong>Schema ReDoc:</strong> <a href="https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/</a></p>
+    <p><strong>Postman Documentation:</strong> <a href="https://documenter.getpostman.com/view/48404273/2sB3HqGHYS" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/</a></p>
+</div>
+        <div class="how-it-works-section" id="deployment" data-aos="zoom-in-down">
+        <h2>Deployment</h2>
+        <h3>Frontend Deployment</h3>
+        <ul>
+            <li><strong>Platform:</strong> Vercel</li>
+            <li><strong>Branch:</strong> Auto-deployment from main</li>
+            <li><strong>Environment Variables:</strong> Managed securely via .env in Vercel dashboard</li>
+            <li><strong>Build & Preview:</strong> Each push triggers preview builds for PRs and deploys on merge to main</li>
+        </ul>
+        <h3>Backend Deployment</h3>
+        <ul>
+            <li><strong>Platform:</strong> Django REST API deployed on Heroku</li>
+            <li><strong>Environment Variables:</strong> Configured in Heroku dashboard for security</li>
+            <li><strong>Scaling:</strong> Automatic scaling via Heroku dynos for increased demand</li>
+        </ul>
+        <h3>CI/CD Pipeline</h3>
+        <ul>
+            <li><strong>Tool:</strong> GitHub Actions</li>
+            <li><strong>Pre-Deployment:</strong> All codebases run tests, build, and lint checks before deploy</li>
+            <li><strong>Automation:</strong> Automatic deployment on merge to main</li>
+            <li><strong>Status:</strong> Build and test status visible in PRs and repository dashboard</li>
+        </ul>
+</div>
+<div class="how-it-works-section" id="security" data-aos="zoom-in-down">
+        <h2>Security</h2>
+        <h3>Authentication</h3>
+        <ul>
+            <li><strong>JWT:</strong> Token-based auth for API access.</li>
+        </ul>
+        <h3>Data Encryption</h3>
+        <ul>
+            <li><strong>HTTPS:</strong> TLS for transport.</li>
+            <li><strong>AES:</strong> Encrypts sensitive data (e.g., passwords).</li>
+        </ul>
+</div>
+  
+<div class="how-it-works-section" id="QA" data-aos="zoom-in-down">
+        <h2>Quality Assurance</h2>
+        <h3>Code Maintenance</h3>
+        <ul>
+            <li><strong>Branching:</strong> Use <code>main</code> for production, <code>develop</code> for features, <code>feature/*</code> for tasks.</li>
+            <li><strong>Commits:</strong> Follow Conventional Commits (e.g, feat: add registration form</code>).</li>
+            <li><strong>Review:</strong> PRs require 5 approvals via GitHub.</li>
+            <li><strong>Pull Requests:</strong> Write clear summary for each PR. <code></code></li>
+        </ul>
+        <h3>QA Process</h3>
+        <ul>
+            <li><strong>Unit Tests:</strong> Jest for React and Pytest for Django (e.g., <code>npm test</code>).</li>
+            <li><strong>Integration Tests:</strong> Postman for API (e.g., <code>GET /api/users</code>).</li>
+            <li><strong>Manual Testing:</strong> Verify PWA form validation.</li>
+            <li><strong>CI/CD Checks:</strong> GitHub Actions runs tests, lints (ESLint), and deploys only on pass.</li>
+        </ul>
+</div>
+<div class="how-it-works-section" id="glossary" data-aos="zoom-in-down">
+        <h2>Glossary</h2>
+        <ul>
+            <li><strong>PWA:</strong> Progressive Web App for offline use.</li>
+            <li><strong>JWT:</strong> JSON Web Token for authentication.</li>
+        </ul>
+</div>
+</div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="contacts">
+                <h6>KukuKonnect</h6>
+                <p>KukuKonnect is an IOT device in Nairobi, Kenya, helping maintain chicken health.</p>
+            </div>
+            <div class="socials">
+                <h6>Get in Touch</h6>
+                <div class="icons">
+                    <div class="icon-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>AkiraChix, Nairobi, Kenya</p>
+                    </div>
+                    <div class="icon-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>kukukonnect@gmail.com</p>
+                    </div>
+                    <div class="icon-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>+255799230923</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
