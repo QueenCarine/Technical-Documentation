@@ -16,6 +16,9 @@
 </head>
 
 <body id="home">
+    <div style="position: absolute; top: 20px; left: 265px; z-index: 100;">
+           <!-- <img src="images/logo.png" alt="KukuKonnect Logo" style="height:48px; width:auto; border-radius:8px" /> -->
+    </div>
     <main class="main">
         <aside class="sidebar">
             <ul>
@@ -25,8 +28,10 @@
                 <li><a href="#flows">System Flows</a></li>
                 <li><a href="#system">System Overview</a></li>
                 <li><a href="#database">Database</a></li>
+                <li><a href="#coding">Code Standards</a></li>
                 <li><a href="#frontend">Frontend</a></li>
                 <li><a href="#backend">Backend</a></li>
+                 <li><a href="#iot">Hardware</a></li>
                 <li><a href="#deployment">Deployment</a></li>
                 <li><a href="#security">Security</a></li>
                 <li><a href="#QA">Quality Assurance</a></li>
@@ -47,7 +52,7 @@
                  <div class="welcome-section" id="introduction" data-aos="zoom-in-down">
                     <h2>Overview</h2>
                   KukuKonnect is an IoT-enabled platform designed to empower Kenyan poultry farmers by monitoring and automatically regulating temperature and humidity in chicken coops. Using ESP32 microcontrollers and DHT22 sensors, it ensures optimal conditions to boost chicken survival rates, reduce losses, and enhance productivity. Farmers access data via a Progressive Web App (PWA) dashboard, with agrovets handling initial device registration and onboarding.
-                  This documentation provides end-to-end guidance for setup, operation, and maintenance of the KukuKonnect system, from hardware deployment to data visualization and API interactions.</p>
+                  This documentation provides end-to-end guidance for setup, operation, and maintenance of the KukuKonnect system, from hardware to data visualization(dashboard) and API interactions.</p>
                    <h3>Key Features</h3>
                     <ul>
                         <li><strong>Real-Time Monitoring:</strong> Utilizes ESP32 microcontrollers with DHT22 sensors to provide live temperature  and humidity data from poultry coops, displayed on a Progressive Web App (PWA).</li>
@@ -59,7 +64,7 @@
                     <h2>Getting Started</h2>
                     <h3>Prerequisites</h3>
                     <ul>
-                        <li><strong>Hardware:</strong> ESP32 microcontroller, DHT22 sensor, relay modules for actuators (fans/heaters), power supply (5V USB or battery).</li>
+                        <li><strong>Hardware:</strong> ESP32 microcontroller, DHT22 sensor, relay modules for actuators (fans/heaters), power supply.</li>
                         <li><strong>Software:</strong> Next js (for frontend dev), Python 3.10+ (for backend), PostgreSQL 14+.</li>
                         <li><strong>Network:</strong> Stable Wi-Fi or 4G for IoT data transmission; Heroku/Vercel for hosting (as per deployment).</li>
                     </ul>
@@ -96,8 +101,8 @@
     <h4>User Flow</h4>
     <p><a href="https://www.figma.com/design/fkHEhQqsMqw6MuV6DmAQNq/User-Flow?node-id=20-2&t=LwGZr6h5eMkx3Ypp-0" target="_blank">View User Flow</a></p>
        <div style="display: flex; gap: 20px; align-items: center;">
-           <img src="images/farmer.png" alt="Farmer" style="width:500px;">
-           <img src="images/agrovet.png" alt="Agrovet" style="width:500px;">
+           <img src="images/farmer.png" alt="Farmer" style="max-width:48%;height:auto;flex:1 1 0;object-fit:contain;border-radius:10px;">
+           <img src="images/agrovet.png" alt="Agrovet" style="max-width:48%;height:auto;flex:1 1 0;object-fit:contain;border-radius:10px;">
        </div>
     <h4>IOT Flow</h4>
     <p> <a href="https://www.figma.com/design/fkHEhQqsMqw6MuV6DmAQNq/User-Flow?node-id=20-2&t=LwGZr6h5eMkx3Ypp-0"> View IOT Flow</p></a></p>
@@ -128,6 +133,76 @@
     <p> <a href="https://drive.google.com/file/d/1VY1lYZptOuyRMAoT9FYlHPcJoKHL-Rop/view"> View Full Entity Relationship Diagram</p></a></p>
     <img src="images/erd.png" alt="ERD Diagram" style="max-width:100%;height:auto;" /></div>
 
+    <div class="how-it-works-section" id="coding" data-aos="zoom-in-down">
+                                    <h3>Code Standards</h3>
+                                    <div class="code-flex-pair">
+                                        <div class="code-box">
+                                            <h4>Frontend (Next.js, TypeScript, Tailwind)</h4>
+                                            <ul>
+                                                <li><strong>Components:</strong> Always use functional components for consistency and performance.</li>
+                                                <li><strong>Naming:</strong>
+                                                    <ul>
+                                                        <li>camelCase for variables and functions</li>
+                                                        <li>PascalCase for component names</li>
+                                                        <li>SCREAMING_SNAKE_CASE for constants</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Files:</strong> One component per file. Group files by feature/module for maintainability.</li>
+                                                <li><strong>Testing:</strong> Use Jest and React Testing Library for unit tests; add tests for each new component or logic.</li>
+                                                <li><strong>Styling:</strong> Tailwind CSS for all styling. Avoid inline styles unless absolutely necessary.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="code-box">
+                                            <h4>Backend (Django, DRF)</h4>
+                                            <ul>
+                                                <li><strong>Naming:</strong>
+                                                    <ul>
+                                                        <li>snake_case for variables and functions</li>
+                                                        <li>PascalCase for classes and models</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Serializers/Views:</strong> Place each in its own file unless they are closely related.</li>
+                                                <li><strong>Testing:</strong> Use Django’s built-in test runner (<code>python manage.py test</code>) and maintain high coverage.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="code-flex-pair">
+                                        <div class="code-box">
+                                            <h4>General Standards</h4>
+                                            <ul>
+                                                <li><strong>Linting:</strong>
+                                                    <ul>
+                                                        <li>Prettier + ESLint for frontend code</li>
+                                                        <li>flake8 and black for backend code</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Pull Requests:</strong>
+                                                    <ul>
+                                                        <li>Write clear summaries for every PR</li>
+                                                        <li>Link related issues (use Fixes #issue_num)</li>
+                                                        <li>Always request at least one review before merging</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Documentation:</strong>
+                                                    <ul>
+                                                        <li>Document components, functions, and modules with JSDoc (frontend) or docstrings (backend)</li>
+                                                        <li>Update README and feature docs for significant changes</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="code-box">
+                                            <h4>Best Practices</h4>
+                                            <ul>
+                                                <li>Keep functions and components small and focused.</li>
+                                                <li>Prefer composition over inheritance.</li>
+                                                <li>Avoid commented-out code in committed files.</li>
+                                                <li>Refactor and remove unused code regularly.</li>
+                                                <li>Always run lint and tests before pushing or merging.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+        </div>
  <div class="how-it-works-section" id="frontend" data-aos="zoom-in-down">
     <h2>Frontend</h2>
         <h3>Language and Frameworks</h3>
@@ -155,6 +230,7 @@
                 </ul>
             </li>
         </ul>
+        <img src="images/structure.png" alt="Folder Structure Diagram" style="max-width:100%;margin:1em 0;border-radius:10px;border:1px solid #d89243;" />
         <h4>Testing</h4>
         <ul>
             <li><strong>Jest and ts-jest:</strong> Unit tests (e.g., <code>test/components/RegistrationForm.test.tsx</code>).</li>
@@ -203,6 +279,7 @@
                 </ul>
             </li>
         </ul>
+        <img src="images/backend.png" alt="Folder Structure Diagram" style="max-width:100%;margin:1em 0;border-radius:10px;border:1px solid #d89243;" />
         <h4>Dependencies</h4>
         <ul>
             <li><strong>Django REST Framework (DRF):</strong> For building RESTful APIs.</li>
@@ -231,6 +308,108 @@
     <p><strong>Swagger UI:</strong> <a href="https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/swagger-ui/" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/swagger-ui/</a></p>
     <p><strong>Schema ReDoc:</strong> <a href="https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/</a></p>
     <p><strong>Postman Documentation:</strong> <a href="https://documenter.getpostman.com/view/48404273/2sB3HqGHYS" target="_blank">https://kukukonnect-6aa0bdb81a64.herokuapp.com/api/schema/redoc/</a></p>
+</div>
+<div class="how-it-works-section" id="iot" data-aos="zoom-in-down">
+                                                <h2>Hardware Device</h2>
+                                                <div class="iot-card">
+                                                    <h3 class="iot-title">Hardware Components</h3>
+                                                    <p>The KukuKonnect IoT device comprises the following components, designed to monitor and regulate environmental conditions in poultry coops through sensors and actuators:</p>
+                                                    <div class="iot-components">
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-microchip" style="filter:none;background:none;box-shadow:none;"></i></span><strong>ESP32 Microcontroller:</strong> A low-cost, low-power system-on-chip (SoC) with dual-core processing, Wi-Fi, and Bluetooth capabilities for robust IoT communication and control of actuators.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-temperature-high" style="filter:none;background:none;box-shadow:none;"></i></span><strong>DHT22 Sensor:</strong> A digital temperature and humidity sensor with high accuracy (±0.5°C for temperature, ±2-5% for humidity) for real-time environmental monitoring.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-toggle-on" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Relay Modules:</strong> Two electromechanical switches (5V, single-channel) to control actuators (fan and heater) based on sensor data thresholds, enabling automated regulation of coop conditions.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fan" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Fan (Ventilation):</strong> A 12V DC brushless fan to provide cooling and air circulation, activated when temperature or humidity exceeds farmer-defined thresholds.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fire" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Heater:</strong> A 220V AC ceramic heating element (or 12V DC option for off-grid setups) to warm the coop when temperatures fall below optimal levels.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-battery-full" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Power Supply:</strong> A power source for the ESP32 and relays, with separate power sources for the fan (12V DC) and heater (220V AC or 12V DC).</div>
+                                                    </div>
+                                                    <h4 class="iot-subtitle">Additional Components</h4>
+                                                    <ul class="iot-list">
+                                                        <li>Breadboard.</li>
+                                                        <li>Jumper wires for connections.</li>
+                                                        <li>Enclosure: A weatherproof casing to protect the device in outdoor or humid coop environments, with sealed openings for actuator wiring.</li>
+                                                    </ul>
+                                                    <h3 class="iot-title">Hardware Specifications</h3>
+                                                    <table class="iot-spec-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Component</th>
+                                                                <th>Specification</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr><td>ESP32</td><td>Dual-core, 240 MHz, 4MB Flash, Wi-Fi 802.11 b/g/n</td></tr>
+                                                            <tr><td>DHT22</td><td>Temperature: -40°C to 80°C, Humidity: 0-100% RH</td></tr>
+                                                            <tr><td>Relay Module</td><td>5V, 10A/250VAC, single-channel (x2 for fan and heater)</td></tr>
+                                                            <tr><td>Fan</td><td>12V DC, 0.2A, 120mm, 2000 RPM, 80 CFM airflow</td></tr>
+                                                            <tr><td>Heater</td><td>220V AC, 100W PTC ceramic (or 12V DC, 50W option)</td></tr>
+                                                            <tr><td>Power Supply</td><td>5V USB or 3.7V LiPo (1000mAh+) for ESP32/relays; 12V DC for fan; 220V AC or 12V DC for heater</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <h4 class="iot-subtitle">Notes on Fan and Heater</h4>
+                                                    <div class="iot-list">
+                                                        <strong>Fan:</strong> The 12V DC brushless fan is selected for energy efficiency, quiet operation (to avoid disturbing poultry), and high airflow to ventilate coops effectively. Its 80 CFM capacity ensures rapid cooling and humidity reduction.<br>
+                                                        <strong>Heater:</strong> The 220V AC PTC (Positive Temperature Coefficient) ceramic heater is chosen for safety (self-regulating to prevent overheating) and reliability. A 12V DC heater option is available for off-grid farms, compatible with solar-powered systems.
+                                                    </div>
+                                                    <h3 class="iot-title">Hardware Assembly</h3>
+                                                    <div class="iot-steps">
+                                                        <div class="iot-step">
+                                                            <strong>Connect the DHT22 Sensor:</strong>
+                                                            <ul>
+                                                                <li>Wire VCC to ESP32 3.3V pin.</li>
+                                                                <li>Wire GND to ESP32 GND pin.</li>
+                                                                <li>Wire Data pin to ESP32 GPIO4.</li>
+                                                                <li>Add a 4.7kΩ pull-up resistor between VCC and Data pins for stable readings.</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="iot-step">
+                                                            <strong>Connect Relay Modules:</strong>
+                                                            <ul>
+                                                                <li><strong>Fan Relay:</strong>
+                                                                    <ul>
+                                                                        <li>Wire VCC to ESP32 5V (or VIN if using USB power).</li>
+                                                                        <li>Wire GND to ESP32 GND.</li>
+                                                                        <li>Connect signal pin to ESP32 GPIO5 for fan control.</li>
+                                                                        <li>Connect the relay’s NO (Normally Open) terminal to the fan’s positive wire and the fan’s negative wire to a 12V DC power supply ground.</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li><strong>Heater Relay:</strong>
+                                                                    <ul>
+                                                                        <li>Wire VCC to ESP32 5V.</li>
+                                                                        <li>Wire GND to ESP32 GND.</li>
+                                                                        <li>Connect signal pin to ESP32 GPIO18 for heater control.</li>
+                                                                        <li>For 220V AC heater: Connect the relay’s NO terminal to the heater’s live wire; connect the heater’s neutral wire directly to the 220V AC mains.</li>
+                                                                        <li>For 12V DC heater: Connect the relay’s NO terminal to the heater’s positive wire and the negative wire to a 12V DC power supply ground.</li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="iot-step">
+                                                            <strong>Power Supply Setup:</strong>
+                                                            <ul>
+                                                                <li>Connect a 5V USB power source or a 3.7V LiPo battery (with a charging module) to the ESP32 and relay modules to ensure continuous operation.</li>
+                                                                <li>For the fan: Use a 12V DC power supply (e.g., battery or adapter) to power the fan through the relay.</li>
+                                                                <li>For the heater: Use a 220V AC mains supply for standard heaters or a 12V DC power source for off-grid heaters. Ensure separate power circuits for high-voltage (heater) and low-voltage (ESP32, fan) components to prevent interference.</li>
+                                                                <li>Verify stable power to avoid brownouts during Wi-Fi transmission or actuator operation.</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="iot-step">
+                                                            <strong>Fan and Heater Installation:</strong>
+                                                            <ul>
+                                                                <li><strong>Fan:</strong> Mount the 120mm fan on a coop ventilation opening to maximize airflow. Use a protective grille to prevent poultry contact and a dust filter to maintain efficiency in dusty environments.</li>
+                                                                <li><strong>Heater:</strong> Install the heater in a safe, well-ventilated area of the coop, at least 30cm from flammable materials (e.g., bedding). Use a heat-resistant mount and ensure the heater is grounded (for 220V AC models).</li>
+                                                                <li>Position both actuators to avoid interfering with the DHT22 sensor’s readings (e.g., place the sensor away from direct airflow or heat).</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="iot-step">
+                                                            <strong>Enclosure:</strong>
+                                                            <ul>
+                                                                <li>Place the ESP32, DHT22, and relay modules in a weatherproof IP65-rated enclosure with openings for sensor exposure and actuator wiring.</li>
+                                                                <li>Route fan and heater cables through sealed glands to maintain weatherproofing.</li>
+                                                                <li>Secure the enclosure in the poultry coop, ensuring the DHT22 sensor is positioned to capture accurate environmental readings (avoid direct sunlight, heat from the heater, or airflow from the fan).</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
 </div>
         <div class="how-it-works-section" id="deployment" data-aos="zoom-in-down">
         <h2>Deployment</h2>
@@ -281,7 +460,8 @@
         <ul>
             <li><strong>Unit Tests:</strong> Jest for React and Pytest for Django (e.g., <code>npm test</code>).</li>
             <li><strong>Integration Tests:</strong> Postman for API (e.g., <code>GET /api/users</code>).</li>
-            <li><strong>Manual Testing:</strong> Verify PWA form validation.</li>
+            <li><strong>Integration Tests:</strong> Postman for pre-scripted tests. The primary goal is to validate the functionality, performance, and reliability of the software with minimal human intervention.</li>
+            <li><strong>Manual Testing:</strong> Verify PWA functionalities.</li>
             <li><strong>CI/CD Checks:</strong> GitHub Actions runs tests, lints (ESLint), and deploys only on pass.</li>
         </ul>
 </div>
