@@ -5,16 +5,74 @@
     gap: 3em;
     font-size: 1.15em;
   }
+
   .logo {
     max-width: 180px;
     max-height: 70px;
     height: 6vh;
   }
 }
+
 .flow-flex {
   display: flex;
   gap: 20px;
   align-items: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 40px;
+  border: none;
+  box-shadow: none;
+  animation: none;
+  transition: none;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close:hover {
+  color: #bbb;
+}
+
+img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+  border: 2px solid #4CAF50;
+}
+
+.modal img {
+  transform: none !important;
+  border: none !important;
+  animation: none !important;
+  transition: none !important;
 }
 
 .flow-img {
@@ -22,11 +80,15 @@
 }
 
 
-html, body {
+html,
+body {
   overscroll-behavior-y: contain;
 }
 
-h1,h2,h3,h4 {
+h1,
+h2,
+h3,
+h4 {
   color: #d89243;
 }
 
@@ -43,9 +105,17 @@ body {
   line-height: 1.6;
 }
 
-h2 { font-size: clamp(1.8rem, 4vw, 2rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 1.8rem); }
-p { font-size: clamp(1rem, 2.5vw, 1.2rem); }
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+}
+
+p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
 
 header {
   padding: 1em 2em;
@@ -53,7 +123,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-wrapper {
@@ -119,7 +189,7 @@ header {
   height: fit-content;
   background-color: #1a1a1a;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -187,6 +257,7 @@ header {
     opacity: 0;
     transform: translateY(-15px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -194,8 +265,15 @@ header {
 }
 
 @keyframes growLine {
-  from { width: 0; opacity: 0; }
-  to { width: 170px; opacity: 1; }
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: 170px;
+    opacity: 1;
+  }
 }
 
 .search-box {
@@ -223,7 +301,7 @@ header {
   padding: 1.5em;
   background-color: #1a1a1a;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
@@ -231,7 +309,7 @@ header {
 .users-section:hover,
 .how-it-works-section:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
@@ -307,7 +385,7 @@ li {
   border-radius: 12px;
   padding: 1.5em;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
 
@@ -429,10 +507,10 @@ footer {
   background: #181818;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.iot-spec-table th, 
+.iot-spec-table th,
 .iot-spec-table td {
   padding: 1em 0.8em;
   border-bottom: 1px solid #d89243;
@@ -489,13 +567,13 @@ footer {
   padding: 1.5em 1.2em;
   margin-bottom: 2em;
   color: #fff;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .code-box:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .code-box h4 {
@@ -626,22 +704,22 @@ footer {
     flex-direction: column;
     gap: 1.2em;
   }
-  
+
   .logo {
     max-width: 100px;
     max-height: 35px;
     height: 4vh;
   }
-  
+
   .sidebar {
     width: 200px;
     padding: 1em 0.5em;
   }
-  
+
   .sidebar ul {
     gap: 0.5em;
   }
-  
+
   .sidebar a {
     font-size: 0.95rem;
     padding: 0.4em 0.7em;
@@ -652,7 +730,7 @@ footer {
   .menu-toggle {
     display: flex;
   }
-  
+
   .main-nav {
     position: fixed;
     top: 70px;
@@ -660,22 +738,22 @@ footer {
     width: 100%;
     background-color: #fff;
     padding: 1em;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transform: translateY(-150%);
     transition: transform 0.3s ease;
     z-index: 100;
   }
-  
+
   .main-nav.active {
     transform: translateY(0);
   }
-  
+
   .main-nav ul {
     flex-direction: column;
     align-items: center;
     width: 100%;
   }
-  
+
   .main {
     flex-direction: column;
     gap: 1.5em;
@@ -731,7 +809,7 @@ footer {
     margin: 1.5em auto;
     width: 120px;
   }
-  
+
   .welcome-section,
   .users-section,
   .how-it-works-section {
@@ -745,16 +823,16 @@ footer {
     max-height: 30px;
     height: 3vh;
   }
-  
+
   .sidebar {
     width: 100%;
     padding: 0.8em 0.3em;
   }
-  
+
   .sidebar ul {
     gap: 0.4em;
   }
-  
+
   .sidebar a {
     font-size: 0.9rem;
     padding: 0.3em 0.5em;
@@ -764,28 +842,30 @@ footer {
     padding: 1em;
     border-radius: 8px;
   }
-  
-  .iot-title, .iot-subtitle {
+
+  .iot-title,
+  .iot-subtitle {
     font-size: 1.1em;
   }
-  
+
   .iot-item {
     padding: 1em;
     font-size: 0.95em;
     flex-direction: column;
     text-align: center;
   }
-  
+
   .iot-icon {
     margin-right: 0;
     margin-bottom: 0.5em;
   }
-  
-  .iot-spec-table th, .iot-spec-table td {
+
+  .iot-spec-table th,
+  .iot-spec-table td {
     padding: 0.6em 0.4em;
     font-size: 0.85em;
   }
-  
+
   .iot-step {
     padding: 1em;
     font-size: 0.95em;
@@ -812,24 +892,24 @@ footer {
   .video-container iframe {
     height: 120px;
   }
-  
+
   .underline {
     margin: 1.5em auto;
     width: 100px;
   }
-  
+
   h2 {
     font-size: 1.6rem;
   }
-  
+
   h3 {
     font-size: 1.4rem;
   }
-  
+
   .img-gallery {
     flex-direction: column;
   }
-  
+
   .img-gallery img {
     min-width: 100%;
   }
