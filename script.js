@@ -16,3 +16,39 @@ sidebarLinks.forEach(link => {
     link.classList.add('active');
   });
 });
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const closeBtn = document.getElementsByClassName("close")[0];
+
+const images = document.querySelectorAll('img');
+
+images.forEach(img => {
+  img.addEventListener('click', function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    modalImg.alt = this.alt;
+    
+    modalImg.style.transform = "none";
+    modalImg.style.boxShadow = "none";
+    modalImg.style.border = "none";
+    modalImg.style.animation = "none";
+    modalImg.style.transition = "none";
+  });
+});
+
+closeBtn.addEventListener('click', function() {
+  modal.style.display = "none";
+});
+
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
