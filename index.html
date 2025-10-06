@@ -315,12 +315,12 @@
                                                     <h3 class="iot-title">Hardware Components</h3>
                                                     <p>The KukuKonnect IoT device comprises the following components, designed to monitor and regulate environmental conditions in poultry coops through sensors and actuators:</p>
                                                     <div class="iot-components">
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-microchip" style="filter:none;background:none;box-shadow:none;"></i></span><strong>ESP32 Microcontroller:</strong> A low-cost, low-power system-on-chip (SoC) with dual-core processing, Wi-Fi, and Bluetooth capabilities for robust IoT communication and control of actuators.</div>
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-temperature-high" style="filter:none;background:none;box-shadow:none;"></i></span><strong>DHT22 Sensor:</strong> A digital temperature and humidity sensor with high accuracy (±0.5°C for temperature, ±2-5% for humidity) for real-time environmental monitoring.</div>
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-toggle-on" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Relay Modules:</strong> Two electromechanical switches (5V, single-channel) to control actuators (fan and heater) based on sensor data thresholds, enabling automated regulation of coop conditions.</div>
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fan" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Fan (Ventilation):</strong> A 12V DC brushless fan to provide cooling and air circulation, activated when temperature or humidity exceeds farmer-defined thresholds.</div>
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fire" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Heater:</strong> A 220V AC ceramic heating element (or 12V DC option for off-grid setups) to warm the coop when temperatures fall below optimal levels.</div>
-                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-battery-full" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Power Supply:</strong> A power source for the ESP32 and relays, with separate power sources for the fan (12V DC) and heater (220V AC or 12V DC).</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-microchip" style="filter:none;background:none;box-shadow:none;"></i></span><strong>ESP32 Microcontroller:</strong> A low-cost, low-power system-on-chip with dual-core processing, Wi-Fi, and Bluetooth capabilities for robust IoT communication and control of actuators.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-temperature-high" style="filter:none;background:none;box-shadow:none;"></i></span><strong>DHT22 Sensor:</strong> A digital temperature and humidity sensor with high accuracy for real-time environmental monitoring.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-toggle-on" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Relay Modules:</strong> Two electromechanical switches to control actuators (fan and heater) based on sensor data thresholds, enabling automated regulation of coop conditions.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fan" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Fan (Ventilation):</strong> A brushless fan to provide cooling and air circulation, activated when temperature or humidity exceeds farmer-defined thresholds.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-fire" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Heater:</strong> An infrared heating element  to warm the coop when temperatures fall below optimal levels.</div>
+                                                        <div class="iot-item"><span class="iot-icon"><i class="fa-solid fa-battery-full" style="filter:none;background:none;box-shadow:none;"></i></span><strong>Power Supply:</strong> A power source for the ESP32 and relays, with separate power sources for the fan and heater.</div>
                                                     </div>
                                                     <h4 class="iot-subtitle">Additional Components</h4>
                                                     <ul class="iot-list">
@@ -328,8 +328,8 @@
                                                         <li>Jumper wires for connections.</li>
                                                         <li>Enclosure: A weatherproof casing to protect the device in outdoor or humid coop environments, with sealed openings for actuator wiring.</li>
                                                     </ul>
-                                                    <h3 class="iot-title">Hardware Specifications</h3>
-                                                    <table class="iot-spec-table">
+                                                    <!-- <h3 class="iot-title">Hardware Specifications</h3> -->
+                                                    <!-- <table class="iot-spec-table">
                                                         <thead>
                                                             <tr>
                                                                 <th>Component</th>
@@ -341,15 +341,15 @@
                                                             <tr><td>DHT22</td><td>Temperature: -40°C to 80°C, Humidity: 0-100% RH</td></tr>
                                                             <tr><td>Relay Module</td><td>5V, 10A/250VAC, single-channel (x2 for fan and heater)</td></tr>
                                                             <tr><td>Fan</td><td>12V DC, 0.2A, 120mm, 2000 RPM, 80 CFM airflow</td></tr>
-                                                            <tr><td>Heater</td><td>220V AC, 100W PTC ceramic (or 12V DC, 50W option)</td></tr>
-                                                            <tr><td>Power Supply</td><td>5V USB or 3.7V LiPo (1000mAh+) for ESP32/relays; 12V DC for fan; 220V AC or 12V DC for heater</td></tr>
+                                                            <tr><td>Heater</td><td>Infrared light</td></tr>
+                                                            <tr><td>Power Supply</td><td>For ESP32, relays; fan;and heater</td></tr>
                                                         </tbody>
-                                                    </table>
-                                                    <h4 class="iot-subtitle">Notes on Fan and Heater</h4>
+                                                    </table> -->
+                                                    <!-- <h4 class="iot-subtitle">Notes on Fan and Heater</h4>
                                                     <div class="iot-list">
                                                         <strong>Fan:</strong> The 12V DC brushless fan is selected for energy efficiency, quiet operation (to avoid disturbing poultry), and high airflow to ventilate coops effectively. Its 80 CFM capacity ensures rapid cooling and humidity reduction.<br>
                                                         <strong>Heater:</strong> The 220V AC PTC (Positive Temperature Coefficient) ceramic heater is chosen for safety (self-regulating to prevent overheating) and reliability. A 12V DC heater option is available for off-grid farms, compatible with solar-powered systems.
-                                                    </div>
+                                                    </div> -->
                                                     <h3 class="iot-title">Hardware Assembly</h3>
                                                     <div class="iot-steps">
                                                         <div class="iot-step">
@@ -386,7 +386,7 @@
                                                         <div class="iot-step">
                                                             <strong>Power Supply Setup:</strong>
                                                             <ul>
-                                                                <li>Connect a 5V USB power source or a 3.7V LiPo battery (with a charging module) to the ESP32 and relay modules to ensure continuous operation.</li>
+                                                                <li>Connect a power source to the ESP32 and relay modules to ensure continuous operation.</li>
                                                                 <li>For the fan: Use a 12V DC power supply (e.g., battery or adapter) to power the fan through the relay.</li>
                                                                 <li>For the heater: Use a 220V AC mains supply for standard heaters or a 12V DC power source for off-grid heaters. Ensure separate power circuits for high-voltage (heater) and low-voltage (ESP32, fan) components to prevent interference.</li>
                                                                 <li>Verify stable power to avoid brownouts during Wi-Fi transmission or actuator operation.</li>
@@ -395,15 +395,15 @@
                                                         <div class="iot-step">
                                                             <strong>Fan and Heater Installation:</strong>
                                                             <ul>
-                                                                <li><strong>Fan:</strong> Mount the 120mm fan on a coop ventilation opening to maximize airflow. Use a protective grille to prevent poultry contact and a dust filter to maintain efficiency in dusty environments.</li>
-                                                                <li><strong>Heater:</strong> Install the heater in a safe, well-ventilated area of the coop, at least 30cm from flammable materials (e.g., bedding). Use a heat-resistant mount and ensure the heater is grounded (for 220V AC models).</li>
+                                                                <li><strong>Fan:</strong> Mount the fan on a coop ventilation opening to maximize airflow. Use a protective grille to prevent poultry contact and a dust filter to maintain efficiency in dusty environments.</li>
+                                                                <li><strong>Heater:</strong> Install the heater in a safe, well-ventilated area of the coop, at least 30cm from flammable materials (e.g., bedding). Use a heat-resistant mount and ensure the heater is grounded.</li>
                                                                 <li>Position both actuators to avoid interfering with the DHT22 sensor’s readings (e.g., place the sensor away from direct airflow or heat).</li>
                                                             </ul>
                                                         </div>
                                                         <div class="iot-step">
                                                             <strong>Enclosure:</strong>
                                                             <ul>
-                                                                <li>Place the ESP32, DHT22, and relay modules in a weatherproof IP65-rated enclosure with openings for sensor exposure and actuator wiring.</li>
+                                                                <li>Place the ESP32, and relay modules in a weatherproof  enclosure with openings for sensor exposure and actuator wiring.</li>
                                                                 <li>Route fan and heater cables through sealed glands to maintain weatherproofing.</li>
                                                                 <li>Secure the enclosure in the poultry coop, ensuring the DHT22 sensor is positioned to capture accurate environmental readings (avoid direct sunlight, heat from the heater, or airflow from the fan).</li>
                                                             </ul>
@@ -460,7 +460,7 @@
         <ul>
             <li><strong>Unit Tests:</strong> Jest for React and Pytest for Django (e.g., <code>npm test</code>).</li>
             <li><strong>Integration Tests:</strong> Postman for API (e.g., <code>GET /api/users</code>).</li>
-            <li><strong>Integration Tests:</strong> Postman for pre-scripted tests. The primary goal is to validate the functionality, performance, and reliability of the software with minimal human intervention.</li>
+            <li><strong>Automation Tests:</strong> Postman for pre-scripted tests. The primary goal is to validate the functionality, performance, and reliability of the software with minimal human intervention.</li>
             <li><strong>Manual Testing:</strong> Verify PWA functionalities.</li>
             <li><strong>CI/CD Checks:</strong> GitHub Actions runs tests, lints (ESLint), and deploys only on pass.</li>
         </ul>
@@ -468,7 +468,7 @@
 <div class="how-it-works-section" id="glossary" data-aos="zoom-in-down">
         <h2>Glossary</h2>
         <ul>
-            <li><strong>PWA:</strong> Progressive Web App for offline use.</li>
+            <li><strong>PWA:</strong> Progressive Web App.</li>
             <li><strong>JWT:</strong> JSON Web Token for authentication.</li>
         </ul>
 </div>
